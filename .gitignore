@@ -1,0 +1,25 @@
+# Node modules
+node_modules
+
+# Adonis directory for storing tmp files
+tmp
+
+# Environment variables, never commit this file
+.env
+
+# The development sqlite file
+database/*.sqlite
+
+# Istanbul NYC coverage files
+coverage
+.nyc_output
+test/.nyc_temp*
+test/coverage*
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# VSCode & Webstorm history directories
+.history
+.idea

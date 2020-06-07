@@ -1,0 +1,17 @@
+FROM node:lts-alpine
+
+WORKDIR /home/rnr-server
+
+COPY package.json ./
+
+# Install dependencies
+RUN npm install --global pm2
+RUN npm install --production
+
+COPY . .
+
+# Expose the application port
+EXPOSE 3333
+
+# Serve the application in production mode
+CMD [ "pm2-runtime", "start", "pm2.json", "--env", "production" ]

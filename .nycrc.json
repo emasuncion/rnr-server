@@ -1,0 +1,33 @@
+{
+  "all": true,
+  "cache": false,
+  "check-coverage": true,
+  "instrument": true,
+  "per-file": false,
+  "sourceMap": false,
+  "statements": 80,
+  "branches": 80,
+  "functions": 80,
+  "lines": 80,
+  "extension": [".js"],
+  "include": ["**/*.js"],
+  "exclude": [
+    "config/*",
+    "database/*",
+    "start/*",
+    "test/*",
+    "server.js",
+    "app/Models/*",
+    "app/Exceptions/*",
+    "app/Validators/*",
+    "app/Middleware/ConvertEmptyStringsToNull.js",
+    "public/*"
+  ],
+  "reporter": [
+    "text",
+    "text-summary",
+    "html"
+  ],
+  "temp-dir": "test/.nyc_temp",
+  "report-dir": "test/coverage"
+}

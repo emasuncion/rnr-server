@@ -1,0 +1,40 @@
+{ 
+  "env": { 
+    "es6": true, 
+    "mocha": true, 
+    "node": true 
+  }, 
+  "extends": [ 
+    "airbnb-base"
+  ], 
+  "globals": { 
+    "expect": true,
+    "use": true 
+  }, 
+  "overrides": [
+    { 
+      "files": ["*.spec.js"], 
+      "rules": { 
+        "no-unused-expressions": "off" 
+      } 
+    } 
+  ], 
+  "rules": { 
+    "arrow-body-style": ["error", "as-needed"],
+    "array-bracket-newline": ["error", {"multiline": true}],
+    "arrow-parens": ["error", "as-needed"], 
+    "class-methods-use-this": "off", 
+    "comma-dangle": ["error", "never"], 
+    "indent": ["error", 2, { 
+      "SwitchCase": 1 
+    }], 
+    "max-len": ["error", 120], 
+    "object-curly-newline": ["error", { 
+      "consistent": true,
+      "minProperties": 3,
+      "multiline": true
+    }], 
+    "object-curly-spacing": ["error", "never"], 
+    "radix": ["error", "as-needed"]
+  }
+}

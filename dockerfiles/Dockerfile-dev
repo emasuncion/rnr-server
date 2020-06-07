@@ -1,0 +1,13 @@
+FROM node:lts-alpine
+
+WORKDIR /home/rnr-server
+
+COPY package.json ./
+
+RUN yarn global add pm2 && yarn install
+
+COPY . .
+
+EXPOSE 3333
+
+CMD [ "pm2-runtime", "start", "pm2.json" ]
