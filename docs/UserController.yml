@@ -1,0 +1,64 @@
+tags:
+  - name: User
+paths:
+  /v1/users:
+    get:
+      tags:
+        - User
+      summary: Get all users or with filters.
+      description: Get all users or with filters.
+      parameters:
+        - in: query
+          name: name
+          schema:
+            - type: string
+          description: name property of user
+        - in: query
+          name: email
+          schema:
+            - type: email
+          description: email property of user
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          properties:
+            success:
+              type: boolean
+              example: true
+            message:
+              type: string
+              example: "Users list"
+            data:
+              $ref: "#/definitions/UserResponse"
+
+components:
+  schemas:
+    UserProperties:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "John Doe"
+        email:
+          type: string
+          example: "jdoe@hoe.org"
+        isAdmin:
+          type: boolean
+          example: true
+
+definitions:
+  UserResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: uuid
+          example: "0cb7f7f6-a850-fa8d-acf2-18bcf0655187"
+        label:
+          type: string
+          example: "user"
+        _properties:
+          $ref: "#/components/schemas/UserProperties"

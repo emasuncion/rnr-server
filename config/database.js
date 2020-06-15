@@ -87,18 +87,16 @@ module.exports = {
     | interacting with Mongodb databases.
     |
     */
-  connection: Env.get('DB_CONNECTION', 'mongodb'),
   /*-------------------------------------------------------------------------*/
 
   mongodb: {
-    client: 'mongodb',
-    connectionString: Env.get('DB_CONNECTION_STRING', ''),
+    connectionString: Env.get('MONGO_CONNECTION_STRING',''),
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
-      port: Env.get('DB_PORT', 27017),
-      username: Env.get('DB_USER', 'admin'),
-      password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis'),
+      host: Env.get('MONGO_HOST', 'localhost'),
+      port: Env.get('MONGO_PORT', 27017),
+      username: Env.get('MONGO_USER', 'admin'),
+      password: Env.get('MONGO_PASSWORD', ''),
+      database: Env.get('MONGO_DATABASE', 'adonis'),
       options: {
         // replicaSet: Env.get('DB_REPLICA_SET', '')
         // ssl: Env.get('DB_SSL, '')
@@ -109,7 +107,8 @@ module.exports = {
         // authSource: Env.get('DB_AUTH_SOURCE', ''),
         // authMechanism: Env.get('DB_AUTH_MECHANISM', ''),
         // other options
-      }
+      },
+      debug: false
     }
   }
 };

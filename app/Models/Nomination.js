@@ -1,10 +1,28 @@
-/** @type {typeof import('lucid-mongo/src/LucidMongo/Model')} */
-const Model = use('Model');
+const Model = use('MongooseModel');
 
 class Nomination extends Model {
-  user() {
-    return this.belongsTo('App/Models/User');
+  static get schema () {
+    return {
+      user: {
+        type: String
+      },
+      category: {
+        type: String
+      },
+      quarter: {
+        type: Number
+      },
+      year: {
+        type: Number
+      },
+      nominee: {
+        type: String
+      },
+      description: {
+        type: String
+      }
+    }
   }
 }
 
-module.exports = Nomination;
+module.exports = Nomination.buildModel('Nomination');

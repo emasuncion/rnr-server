@@ -8,7 +8,8 @@ const providers = [
   '@adonisjs/session/providers/SessionProvider',
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/validator/providers/ValidatorProvider',
-  'lucid-mongo/providers/LucidMongoProvider'
+  'adonis-swagger/providers/SwaggerProvider',
+  'adonis-mongoose-model/providers/MongooseProvider'
 ];
 
 const aceProviders = [

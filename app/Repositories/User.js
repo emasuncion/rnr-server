@@ -3,23 +3,16 @@ const _ = require('lodash');
 
 class UserRepository {
   async getAllUsers() {
-    const users = await User.fetch();
-    return users.toJSON();
+    const users = await User.find({});
+    return users;
   }
 
   async create(body) {
-    const Database = use('Database');
-    const mongoClient = await Database.connect();
-
-    const defaults = {
-      created_at: new Date().getTime(),
-      updated_at: new Date().getTime(),
-      isAdmin: 'false'
-    };
-    const properties = Object.assign(defaults, this.stripKeys(body));
-
-    const user = await mongoClient.collection('users')
-      .insertOne(properties);
+    const cleanUser = Object.assign({isAdmin: false}, this.stripKeys(body));
+    const user = new User(cleanUser);
+    user.save(err => {
+      if (err) throw err;
+    });
     return user;
   }
 

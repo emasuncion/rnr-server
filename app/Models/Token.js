@@ -1,6 +1,5 @@
 
-/** @type {typeof import('lucid-mongo/src/LucidMongo/Model')} */
-const Model = use('Model');
+const Model = use('MongooseModel');
 
 class Token extends Model {
   user() {
