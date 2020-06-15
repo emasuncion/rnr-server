@@ -3,25 +3,22 @@ const _ = require('lodash');
 
 class NominationRepository {
   async search(filters) {
-    const nominations = await Nomination.where(filters).fetch();
-    return nominations.toJSON();
+    const nominations = await Nomination.find(filters);
+    return nominations;
   }
 
   async create(body) {
-    const Database = use('Database');
-    const mongoClient = await Database.connect();
     const currentDateTime = new Date();
-
     const defaults = {
-      created_at: currentDateTime.getTime(),
-      updated_at: currentDateTime.getTime(),
       quarter: this.getCurrentQuarter(currentDateTime),
       year: currentDateTime.getFullYear()
     };
-    const properties = Object.assign(defaults, this.stripKeys(body));
+    const nominationProp = Object.assign(defaults, this.stripKeys(body));
 
-    const nomination = await mongoClient.collection('nominations')
-      .insertOne(properties);
+    const nomination = new Nomination(nominationProp);
+    nomination.save(err => {
+      if (err) throw err;
+    });
     return nomination;
   }
 

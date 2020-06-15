@@ -12,8 +12,8 @@ Route.group(() => {
 })
   .prefix('v1');
 
-Route.any('*', ({response}) => response.methodNotAllowed({
-  success: false,
-  message: 'Access Denied',
-  data: null
-}));
+// Route.any('*', ({response}) => response.methodNotAllowed({
+//   success: false,
+//   message: 'Access Denied',
+//   data: null
+// }));
