@@ -13,7 +13,6 @@ const providers = [
 ];
 
 const aceProviders = [
-  'lucid-mongo/providers/MigrationsProvider',
   '@adonisjs/vow/providers/VowProvider'
 ];
 
