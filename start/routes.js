@@ -9,6 +9,8 @@ Route.group(() => {
   Route.resource('nominations', 'NominationController')
     .only(['index', 'store'])
     .validator(new Map([[['store'], ['Nomination/StoreNomination']]]));
+  Route.resource('voting', 'VotingController')
+    .only(['index', 'store']);
 })
   .prefix('v1');
 
